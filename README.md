@@ -1,10 +1,10 @@
 # worldwisdom_front
 
 ## Branch naming convention
-<your name>-<name of feature>
+"your name"-"name of feature"
 
 ### To create a new feature branch:
-git checkout -b <branch name>
+git checkout -b "branch name"
 
 ## Commit process
 1. create your own branch
