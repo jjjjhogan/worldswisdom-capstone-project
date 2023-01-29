@@ -13,5 +13,5 @@ git checkout -b "branch name"
 4. create pull request
 5. resolve conflicts
 6. merge to main branch
-
+---
 Make sure to use rebase command instead of merge.
