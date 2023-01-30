@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense, useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LoadingIndicator from "./components/LoadingIndicator";
+import Landing from "./containers/Landing";
+import ErrorBoundary from "./containers/ErrorBoundary";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <ErrorBoundary>
+      <Suspense fallback="loading">
+        <Router
+          basename={
+            process.env.NODE_ENV === "development" ? "/worlds-wisdom" : "/"
+          }
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <div>
+            <Routes>
+              <Route path={`${process.env.PUBLIC_URL}/`} element={<Landing />}></Route>
+            </Routes>
+            <LoadingIndicator loading={isLoading} />
+          </div>
+        </Router>
+      </Suspense>
+    </ErrorBoundary>
   );
 }
 
