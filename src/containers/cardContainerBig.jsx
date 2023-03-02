@@ -2,7 +2,11 @@ import React from "react";
 import ImgOverlay from "../components/ImgOverlay";
 
 export default function containBigCard() {
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 0f27275 (undo revert)
     return (
       <div>
         <ImgOverlay
