@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoadingIndicator from "./components/LoadingIndicator";
 import Landing from "./containers/Landing";
 import ErrorBoundary from "./containers/ErrorBoundary";
+import commonCard from "./containers/cardContainer";
+import containBigCard from "./containers/cardContainerBig";
+import commonBadge from "./containers/BadgeContainer";
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
