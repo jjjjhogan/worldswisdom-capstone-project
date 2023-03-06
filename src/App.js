@@ -17,7 +17,7 @@ function App() {
         >
           <div>
             <Routes>
-              <Route path={`${process.env.PUBLIC_URL}/`} element={<Landing />}></Route>
+              <Route path={`${process.env.PUBLIC_URL}/`} element={<Landing/>}></Route>
             </Routes>
             <LoadingIndicator loading={isLoading} />
           </div>

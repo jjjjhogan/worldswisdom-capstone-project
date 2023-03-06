@@ -1,0 +1,22 @@
+.card-text{
+    color: grey;
+    display: "flex";
+    height: "100%";
+   
+    
+}
+.card{
+    width: 58%;
+    max-width:700px;
+    margin: 0 auto;
+    padding: 2%;
+    display: "flex";
+    justify-content: 'center';
+    align-items: 'center';
+    height: '100%'
+}
+
+/* .card-body{
+    align-items: center;
+    
+} */
