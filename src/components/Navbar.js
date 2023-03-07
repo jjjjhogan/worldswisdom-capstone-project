@@ -1,7 +1,7 @@
-export default function NavBar({
-  settingsBtnIconClassName = "",
-  handleSettingsBtnOnClick,
-}) {
+import Dropdown from "./Dropdown";
+import logo from "./logo1.png"
+
+export default function NavBar() {
   return (
     <nav className="navbar navbar-dark bg-primary">
       <div className="container-fluid">
@@ -10,18 +10,16 @@ export default function NavBar({
           href={`${process.env.PUBLIC_URL}/`}
         >
           <img
-            src="/images/logo/logo.png"
+            src= {logo}
             alt=""
-            width="30"
-            height="30"
+            width="50"
+            height="50"
             className="d-inline-block align-top"
           />{" "}
           WorldsWisdom
         </a>
           <nav>
-            <button className="btn btn-primary" onClick={handleSettingsBtnOnClick}>
-              <i className="bi bi-gear" />
-            </button>
+            <Dropdown/>
           </nav>
       </div>
     </nav>

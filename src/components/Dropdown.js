@@ -1,36 +1,37 @@
-import React from "react"
+import React, {useState} from 'react';
+import DropdownItem from './DropdownItem';
+import achievement from "./dropdown_icons/achievement.svg"
+import payment from "./dropdown_icons/payment.svg"
+import question_ans from "./dropdown_icons/question_answered.svg"
+import question_posted from "./dropdown_icons/question_posted.svg"
+import profile from "./dropdown_icons/profile.svg"
+import menu from "./dropdown_icons/menu.svg"
+import logout from "./dropdown_icons/logout.svg"
 
-export default function Dropdown({
+export default function Dropdown() {
+    
+    const [open, setOpen] = useState(false);
 
-}) {
+
+  
     return (
-        <div>
-        <ul class="nav nav-tabs" role="tablist">
-            <li class="nav-item" role="presentation">
-                <a class="nav-link active" data-bs-toggle="tab" href="#home" aria-selected="true" role="tab">Home</a>
-            </li>
-            <li class="nav-item" role="presentation">
-                <a class="nav-link" data-bs-toggle="tab" href="#profile" aria-selected="false" tabindex="-1" role="tab">Profile</a>
-            </li>
-            <li class="nav-item" role="presentation">
-                <a class="nav-link disabled" href="#" aria-selected="false" tabindex="-1" role="tab">Disabled</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                <div class="dropdown-menu" style="">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Separated link</a>
-                </div>
-            </li>
-        </ul>
-        <div id="myTabContent" class="tab-content">
-                <div class="tab-pane fade" id="dropdown1">
-                    <p>Test test test 123.</p>
-                </div>
+            <div className='menu-container' >
+              <div className='menu-trigger' onClick={()=>{setOpen(!open)}}>
+                <img src={menu}></img>
+              </div>
+      
+              <div className={`dropdown-menu ${open? 'active' : 'inactive'}`} >
+                <ul>
+                  <DropdownItem img = {profile} text = {"Profile"}/>
+                  <DropdownItem img = {question_posted} text = {"Questions Posted"}/>
+                  <DropdownItem img = {question_ans} text = {"Questions Answered"}/>
+                  <DropdownItem img = {achievement} text = {"Achievement"}/>
+                  <DropdownItem img = {payment} text = {"Payment"}/>
+                  <DropdownItem img = {logout} text = {"Logout"}/>
+                </ul>
+              </div>
             </div>
-            </div>
-    );
-}
+        );
+    }
+
+      
