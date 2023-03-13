@@ -1,10 +1,11 @@
 import React, { Suspense, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoadingIndicator from "./components/LoadingIndicator";
-//import Landing from "./containers/Landing";
+import Landing from "./containers/Landing";
 import ErrorBoundary from "./containers/ErrorBoundary";
+import HomePage from "./components/HomePage";
 
-//import Question_post_container from "./containers/Question_post_container";
+import Question_post_container from "./containers/Question_post_container";
 function App() {
   const [isLoading, setIsLoading] = useState(false);
 
@@ -18,7 +19,7 @@ function App() {
         >
           <div>
             <Routes>
-              <Route path={`${process.env.PUBLIC_URL}/`} element={<CustomCard/>}></Route>
+              <Route path={`${process.env.PUBLIC_URL}/`} element={<Register_container/>}></Route>
               
             </Routes>
             <LoadingIndicator loading={isLoading} />

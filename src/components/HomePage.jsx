@@ -1,6 +1,6 @@
 import React from "react";
-import CustomCard from "./CustomCard";
-//import NavBar from "./Navbar";
+import CardContainer from "../containers/CardContainer";
+import NavBar from "./Navbar";
 
 export default function HomePage(){
     const categories = ["History", "Science", "etc"];
@@ -9,7 +9,7 @@ export default function HomePage(){
         <div>
             <h1>Explore your chosen topics</h1>
             {categories.map((category, index) => (
-                <CustomCard className="categoryCard" text={category} key={index}></CustomCard>
+                <CardContainer className="categoryCard" text={category} key={index}></CardContainer>
             ))}
 
             
