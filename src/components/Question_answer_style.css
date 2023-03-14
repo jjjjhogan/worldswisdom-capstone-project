@@ -1,0 +1,16 @@
+.title{
+    float:left
+}
+.type{
+    float:left
+}
+.label{
+    float:left
+}
+.video{
+    position: relative;
+    right: 150px;
+}
+.upload{
+    float: left;
+}
