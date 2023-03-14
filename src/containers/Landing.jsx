@@ -68,12 +68,17 @@ export default function Landing() {
           </Row>
         </Container>
       </div>
+      <div class="d-flex justify-content-end">
+        <a href="#" class="link-primary">Click here for more</a>
+      </div>
+      <hr/>
       <div class="d-flex justify-content-start p-3">
         <h5>Explore popular questions</h5>
       </div>
-      <div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-center pb-3">
         <CarouselComponent items={carouselData} />
       </div>
+      <hr/>
       <div class="d-flex justify-content-start p-3">
         <h5>Recently answered questions</h5>
       </div>
