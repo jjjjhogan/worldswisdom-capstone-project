@@ -92,3 +92,31 @@ code {
   margin-left: 10px;
   transition: var(--speed);
 }
+
+.questionProfile img{
+  position:relative;
+  top: 0px;
+  right: 620px;
+  height: 40px;
+  width: 40px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.questionProfile p{
+  position:relative;
+  bottom: 30px;
+  right: 560px;
+}
+
+.questionText p{
+  position:relative;
+  bottom: 30px;
+  right: 550px;
+}
+
+.questionText button{
+  position:relative;
+  bottom: 10px;
+  left: 610px;
+}
