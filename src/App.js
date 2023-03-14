@@ -4,6 +4,7 @@ import LoadingIndicator from "./components/LoadingIndicator";
 import Landing from "./containers/Landing";
 import ErrorBoundary from "./containers/ErrorBoundary";
 
+
 function App() {
   const [isLoading, setIsLoading] = useState(false);
 
@@ -17,7 +18,7 @@ function App() {
         >
           <div>
             <Routes>
-              <Route path={`${process.env.PUBLIC_URL}/`} element={<Landing/>}></Route>
+
             </Routes>
             <LoadingIndicator loading={isLoading} />
           </div>

@@ -17,18 +17,21 @@ export default function NavBar() {
           />{" "}
           WorldsWisdom
         </a>
+
         <nav className="nav-item">
-        <button type="button" className="btn btn-primary">Login</button>
+          <form className="d-flex">
+            <input className="form-control me-sm-2" type="search" placeholder="Search"/>
+            <button className="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+          </form>
         </nav>
+
         <nav className="nav-item">
-        <form className="d-flex">
-        <input className="form-control me-sm-2" type="search" placeholder="Search"/>
-        <button className="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-      </form>
+          <button type="button" className="btn btn-primary">Login</button>
         </nav>
-          <nav className="nav-item">
-            <Dropdown/>
-          </nav>
+
+        <nav className="nav-item">
+          <Dropdown/>
+        </nav>
       </div>
     </nav>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import Question_post from "../components/Question_post";
 import NavBar from "../components/Navbar"
-
+import "../components/Question_post_style.css"
 export default function Question_post_container() {
 
     return (
@@ -11,6 +11,10 @@ export default function Question_post_container() {
           <div>
           </div>
           <Question_post />
+          <button type="button" class="btn btn-warning" >post</button>
+        </div>
+        <div>
+       
         </div>
       </div>
     );
