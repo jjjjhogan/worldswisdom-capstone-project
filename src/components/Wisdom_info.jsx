@@ -1,6 +1,13 @@
 import React from "react";
 import Stack from 'react-bootstrap/Stack';
+import { useNavigate } from "react-router-dom";
+
 export default function Wisdom_info() {
+  const navigate = useNavigate();
+
+  function handleClick() {
+    navigate(`${process.env.PUBLIC_URL}/register3`);
+  }
   
   return (
     <div>
@@ -34,7 +41,8 @@ export default function Wisdom_info() {
     </div>
     </form>
     </Stack>
-    <button type="button" class="btn btn-warning">Next</button>
+    <br />
+    <button type="button" class="btn btn-warning" onClick={handleClick}>Next</button>
     </div>
   );
 }
