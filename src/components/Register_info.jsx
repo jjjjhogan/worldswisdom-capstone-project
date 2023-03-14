@@ -1,7 +1,14 @@
 import React from "react";
 import './Register_info.css'
 import Stack from 'react-bootstrap/Stack';
+import { useNavigate } from "react-router-dom";
+
 export default function Register_info() {
+  const navigate = useNavigate();
+
+  function handleClick() {
+    navigate(`${process.env.PUBLIC_URL}/register2`);
+  }
   
   return (
     <div>
@@ -30,7 +37,10 @@ export default function Register_info() {
     </div>
     </form>
     </Stack>
-    <button type="button" class="btn btn-warning">Next</button>
+    <br />
+    <button type="button" class="btn btn-warning" onClick={handleClick}>Next</button>
+
+   
     </div>
   );
 }
