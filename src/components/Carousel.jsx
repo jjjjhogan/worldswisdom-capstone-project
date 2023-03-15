@@ -11,7 +11,7 @@ const CarouselComponent = ({items}) => {
               src={item.imageSrc}
               alt={item.title}
               style={{ width: '450px', height: '250px'  }}
-              class="rounded"
+              className="rounded"
             />
             <Carousel.Caption>
               <h3>{item.title}</h3>
@@ -25,7 +25,7 @@ const CarouselComponent = ({items}) => {
               src="https://static.scientificamerican.com/sciam/cache/file/7B4F3D12-2083-457B-A709F561FC4E696D_source.jpg"
               alt="Science"
               style={{ width: '450px', height: '250px'  }}
-              class="rounded"
+              className="rounded"
               //className="d-block w-100"
             />
             <Carousel.Caption>
@@ -40,7 +40,7 @@ const CarouselComponent = ({items}) => {
               src="https://cdn.britannica.com/78/43678-050-F4DC8D93/Starry-Night-canvas-Vincent-van-Gogh-New-1889.jpg"
               alt="Art"
               style={{ width: '450px', height: '250px'  }}
-              class="rounded"
+              className="rounded"
               //className="d-block w-100"
             />
             <Carousel.Caption>

@@ -1,21 +1,21 @@
 import React from "react";
 import Stack from 'react-bootstrap/Stack';
 import "../components/Question_post_style.css"
-export default function Question_post() {
-  
+
+export default function Question_post() {  
   return (
     <div>
     <Stack gap={50}>
     <form>
-    <div class="form-group">
+    <div className="form-group">
         <label  className="title">Title</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Title for you question"></input>
+        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Title for you question"></input>
 
     </div>
     
-    <div class="form-group">
+    <div className="form-group">
         <label className="category">Category</label>
-        <select multiple="" class="form-select" id="exampleSelect2">
+        <select multiple="" className="form-select" id="exampleSelect2">
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -24,9 +24,9 @@ export default function Question_post() {
         </select>
     </div>
     <div className="bg-light border">
-    <div class="form-group">
+    <div className="form-group">
         <label className="description">Description</label>
-        <textarea class="form-control" id="exampleTextarea" rows="3" spellcheck="false"></textarea>
+        <textarea className="form-control" id="exampleTextarea" rows="3" spellcheck="false"></textarea>
     </div>
     </div>
     </form>

@@ -22,7 +22,7 @@ const CardComponent = (props) => {
       <Card.Img 
         src={props.image} 
         alt={props.text}
-        class="img-fluid rounded"
+        className="img-fluid rounded"
       />
       <Card.ImgOverlay>
         <Card.Text>

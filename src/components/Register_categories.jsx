@@ -10,37 +10,37 @@ export default function Register_categories() {
       <br />
       
       <div className="bg-light border">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-          <label class="form-check-label" for="flexCheckDefault">History</label>  
+        <div className="form-check">
+          <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
+          <label className="form-check-label" for="flexCheckDefault">History</label>  
         </div>
       </div>
       <div className="bg-light border">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-          <label class="form-check-label" for="flexCheckDefault">Relationship</label>  
+        <div className="form-check">
+          <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
+          <label className="form-check-label" for="flexCheckDefault">Relationship</label>  
         </div>
       </div>
       <div className="bg-light border">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-          <label class="form-check-label" for="flexCheckDefault">Chemistry</label>  
+        <div className="form-check">
+          <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
+          <label className="form-check-label" for="flexCheckDefault">Chemistry</label>  
         </div>
       </div>
       <div className="bg-light border">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-          <label class="form-check-label" for="flexCheckDefault">Astronomy</label>  
+        <div className="form-check">
+          <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
+          <label className="form-check-label" for="flexCheckDefault">Astronomy</label>  
         </div>
       </div>
       <div className="bg-light border">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-          <label class="form-check-label" for="flexCheckDefault">Life</label>  
+        <div className="form-check">
+          <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
+          <label className="form-check-label" for="flexCheckDefault">Life</label>  
         </div>
       </div>
       <br />
-      <button type="button" class="btn btn-warning">Save</button>
+      <button type="button" className="btn btn-warning">Save</button>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import Dropdown from "./Dropdown";
-import logo from "./logo1.png"
+import logo from "./logo1.png";
 
 export default function NavBar() {
   return (
@@ -26,7 +26,7 @@ export default function NavBar() {
         </nav>
 
         <nav className="nav-item">
-          <button type="button" className="btn btn-primary">Login</button>
+          <a href="/login" className="btn btn-primary">Login</a>
         </nav>
 
         <nav className="nav-item">

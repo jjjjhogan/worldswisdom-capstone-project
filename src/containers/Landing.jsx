@@ -1,7 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from 'react-bootstrap';
 import CardComponent from "../components/CardComponent";
-import Navbar from "../components/Navbar";
 import CarouselComponent from "../components/Carousel";
 
 
@@ -48,11 +47,10 @@ export default function Landing() {
 
   return (
     <div className="d-flex flex-column inner-height landing">
-      <Navbar />
-      <div class="d-flex justify-content-start p-3">
+      <div className="d-flex justify-content-start p-3">
         <h5>Explore your chosen topics</h5>
       </div>
-      <div class="d-flex justify-content-center">
+      <div className="d-flex justify-content-center">
         <Container>
           <Row>
             {cardsData.map((card, index) => (
@@ -68,18 +66,18 @@ export default function Landing() {
           </Row>
         </Container>
       </div>
-      <div class="d-flex justify-content-end">
-        <a href="#" class="link-primary">Click here for more</a>
+      <div className="d-flex justify-content-end">
+        <a href="#" className="link-primary">Click here for more</a>
       </div>
       <hr/>
-      <div class="d-flex justify-content-start p-3">
+      <div className="d-flex justify-content-start p-3">
         <h5>Explore popular questions</h5>
       </div>
-      <div class="d-flex justify-content-center pb-3">
+      <div className="d-flex justify-content-center pb-3">
         <CarouselComponent items={carouselData} />
       </div>
       <hr/>
-      <div class="d-flex justify-content-start p-3">
+      <div className="d-flex justify-content-start p-3">
         <h5>Recently answered questions</h5>
       </div>
     </div>
