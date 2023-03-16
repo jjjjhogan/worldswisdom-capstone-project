@@ -1,6 +1,5 @@
 import { WORLDS_WISDOM_CORE } from "../constants";
-
-const axios = require("axios").default;
+import axios from 'axios';
 
 // get all the categories in the database
 // parameter: none
@@ -143,7 +142,7 @@ export const getAnswer = async (
 ) => {
   try {
     const { data } = await axios.get(
-      `${ANIMAL_SPLIT_CORE[process.env.NODE_ENV].URL}/api/v0/answer/${videoKey}`
+      `${WORLDS_WISDOM_CORE[process.env.NODE_ENV].URL}/api/v0/answer/${videokey}`
     );
     return data;
   } catch (error) {
@@ -222,7 +221,7 @@ export const getQuestion = async(
 export const getHelloWorld = async () => {
   try {
     const { data } = await axios.get(
-      `${ANIMAL_SPLIT_CORE[process.env.NODE_ENV].URL}/api/v0/hello`
+      `${WORLDS_WISDOM_CORE[process.env.NODE_ENV].URL}/api/v0/hello`
     );
     return data;
   } catch (error) {
