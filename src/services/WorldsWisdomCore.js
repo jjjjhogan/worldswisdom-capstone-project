@@ -228,3 +228,17 @@ export const getHelloWorld = async () => {
     throw error;
   }
 };
+
+export const getGoogleLogin = async(
+  something
+) => {
+  try {
+    const { data } = await axios.post(
+      `${WORLDS_WISDOM_CORE[process.env.NODE_ENV].URL}/api/v0/user/google`,
+      { credential: something }
+    );
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
