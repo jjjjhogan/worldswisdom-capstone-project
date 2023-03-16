@@ -1,10 +1,19 @@
-import React from "react";
+import { React, useState, useEffect} from "react";
 import { Container, Row, Col } from 'react-bootstrap';
 import CardComponent from "../components/CardComponent";
 import CarouselComponent from "../components/Carousel";
-
+import { getCategories } from "../services/WorldsWisdomCore";
 
 export default function Landing() {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    async function fetchCategories() {
+      const categoriesData = await getCategories();
+      setCategories(categoriesData);
+    }
+    fetchCategories();
+  }, []);
 
   const cardsData = [
     {
@@ -53,13 +62,13 @@ export default function Landing() {
       <div className="d-flex justify-content-center">
         <Container>
           <Row>
-            {cardsData.map((card, index) => (
-            <Col key={index} xs={12} md={4}>
+            {categories.map((category, index) => (
+            <Col key={index} xs={12} md={3} lg={2} className="mb-4">
             <CardComponent
-              dimension={card.dimension}
-              text={card.text}
-              image={card.image}
-              hyperlink={card.hyperlink}
+              dimension="150px"
+              text={category}
+              image={process.env.PUBLIC_URL + "/img/" + category + ".jpg"}
+              // hyperlink={card.hyperlink}
             />
           </Col>
         ))}

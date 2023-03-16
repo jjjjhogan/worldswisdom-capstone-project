@@ -7,7 +7,7 @@ import LoginPage from "./containers/LoginPage";
 import RegisterPage from "./containers/RegisterPage";
 import RegisterPage2 from "./containers/RegisterPage2";
 import RegisterPage3 from "./containers/RegisterPage3";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/Navbar";
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
@@ -23,7 +23,6 @@ function App() {
               <Route path={`${process.env.PUBLIC_URL}/register`} element={<RegisterPage />} />
               <Route path={`${process.env.PUBLIC_URL}/register2`} element={<RegisterPage2 />} />
               <Route path={`${process.env.PUBLIC_URL}/register3`} element={<RegisterPage3 />} />
-              <Route path={`${process.env.PUBLIC_URL}/`} element={<Landing/>}></Route>
             </Routes>
             <LoadingIndicator loading={isLoading} />
         </Router>
