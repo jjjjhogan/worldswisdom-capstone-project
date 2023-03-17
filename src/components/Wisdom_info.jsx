@@ -14,9 +14,9 @@ export default function Wisdom_info() {
     <Stack gap={5}>
     <form>
     <div className="bg-light border">
-    <div class="form-group">
-      <label for="Recieve" class="form-label mt-4">Would you like to receive wisdom?</label>
-      <select class="form-select" id="exampleSelect1">
+    <div className="form-group">
+      <label for="Recieve" className="form-label mt-4">Would you like to receive wisdom?</label>
+      <select className="form-select" id="exampleSelect1">
         <option></option>
         <option>Yes</option>
         <option>No</option>
@@ -24,9 +24,9 @@ export default function Wisdom_info() {
     </div>
     </div>
     <div className="bg-light border">
-    <div class="form-group">
-      <label for="Contribute" class="form-label mt-4">Would you like to contribute wisdom?</label>
-      <select class="form-select" id="exampleSelect1">
+    <div className="form-group">
+      <label for="Contribute" className="form-label mt-4">Would you like to contribute wisdom?</label>
+      <select className="form-select" id="exampleSelect1">
         <option></option>
         <option>Yes</option>
         <option>No</option>
@@ -34,15 +34,15 @@ export default function Wisdom_info() {
     </div>
     </div>
     <div className="bg-light border">
-    <div class="form-group">
-    <label for="exampleInputEmail1" class="form-label mt-4">Please enter your occupation</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder=""></input>
+    <div className="form-group">
+    <label for="exampleInputEmail1" className="form-label mt-4">Please enter your occupation</label>
+    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder=""></input>
     </div>
     </div>
     </form>
     </Stack>
     <br />
-    <button type="button" class="btn btn-warning" onClick={handleClick}>Next</button>
+    <button type="button" className="btn btn-warning" onClick={handleClick}>Next</button>
     </div>
   );
 }

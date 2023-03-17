@@ -20,9 +20,10 @@ const CardComponent = (props) => {
     <Card 
       style={{ width: props.dimension, height: props.dimension }}>
       <Card.Img 
+        style={{ height: props.dimension, objectFit: "cover" }}
         src={props.image} 
         alt={props.text}
-        class="img-fluid rounded"
+        className="img-fluid rounded"
       />
       <Card.ImgOverlay>
         <Card.Text>

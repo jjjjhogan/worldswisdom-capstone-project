@@ -1,4 +1,4 @@
-export const ANIMAL_SPLIT_CORE = {
+export const WORLDS_WISDOM_CORE = {
   development: {
     URL: process.env.REACT_APP_CORE_URL_LOCAL,
   },
