@@ -2,9 +2,12 @@ import RegisterInfo from "../components/RegisterInfo";
 import WisdomInfo from "../components/WisdomInfo";
 import RegisterCategories from "../components/RegisterCategories";
 import React, {useState, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 import { postUserData } from "../services/WorldsWisdomCore";
 
 export default function RegisterPage() {
+  const navigate = useNavigate();
+
   const [userData, setUserData] = useState(null);
   const [formData, setFormData] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
@@ -21,8 +24,12 @@ export default function RegisterPage() {
 
   async function submitForm() {
     console.log(formData);
-    const res = await postUserData(formData);
-    console.log("response: " + res);
+    const userId = sessionStorage.getItem("userId");
+    const email = sessionStorage.getItem("email");
+    const data = {...formData, email, userId};
+    console.log(data);
+    const res = await postUserData(data);
+    navigate("/");
   }
 
   function nextPage() {

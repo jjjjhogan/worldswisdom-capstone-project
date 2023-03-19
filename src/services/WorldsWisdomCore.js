@@ -34,20 +34,11 @@ export const getCategories = async () => {
   // birthday,
   // occupations,
   // chosenCategories
-export const postUserData = async (
-  firstName,
-  lastName,
-  userName,
-  userId,
-  email,
-  birthday,
-  occupations,
-  chosenCategories
-) => {
+export const postUserData = async (userData) => {
   try {
+
     const { data } = await axios.post(
-      `${WORLDS_WISDOM_CORE[process.env.NODE_ENV].URL}/api/v0/user/register`,
-      { firstName, lastName, userName, userId, email, birthday, occupations, chosenCategories }
+      `${WORLDS_WISDOM_CORE[process.env.NODE_ENV].URL}/api/v0/user/register`, userData
     );
     return data;
   } catch (error) {
