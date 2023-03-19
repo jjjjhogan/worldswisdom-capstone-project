@@ -133,7 +133,7 @@ export const getAnswer = async (
 ) => {
   try {
     const { data } = await axios.get(
-      `${WORLDS_WISDOM_CORE[process.env.NODE_ENV].URL}/api/v0/answer/${videokey}`
+      `${WORLDS_WISDOM_CORE[process.env.NODE_ENV].URL}/api/v0/answer/getAnswer/${videokey}`
     );
     return data;
   } catch (error) {
@@ -164,14 +164,14 @@ export const getRecentlyAnsweredQuestions = async () => {
 // return: answer object
 export const postAnswer = async (
   questionId,
-  videoKey,
   userId,
-  description
+  description,
+  file
   ) => {
   try {
     const { data } = await axios.post(
       `${WORLDS_WISDOM_CORE[process.env.NODE_ENV].URL}/api/v0/answer/postAnswer`,
-      { questionId, videoKey, userId, description }
+      { questionId, userId, description, file }
     );
     return data;
   } catch (error) {
