@@ -10,7 +10,7 @@ export default function Question_display_container() {
         
         <div className="container flex-grow-1 text-center d-flex flex-column justify-content-center">
           <div>
-          <Question_display image = {profile} user = {"Joseph"} text = {"Example question text?"}/>
+          <Question_display category = {"History"} text = {"Example question text?"}/>
           </div>
         </div>
       </div>

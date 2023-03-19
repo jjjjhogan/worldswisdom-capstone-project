@@ -9,6 +9,9 @@ import RegisterPage2 from "./containers/RegisterPage2";
 import RegisterPage3 from "./containers/RegisterPage3";
 import NavBar from "./components/Navbar";
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import QuestionAnswerPage from "./containers/QuestionAnswerPage"
+import QuestionPostPage from "./containers/QuestionPostPage"
+import AnswerDisplayPage from "./containers/AnswerDisplayPage"
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
@@ -25,6 +28,10 @@ function App() {
                 <Route path={`${process.env.PUBLIC_URL}/register`} element={<RegisterPage />} />
                 <Route path={`${process.env.PUBLIC_URL}/register2`} element={<RegisterPage2 />} />
                 <Route path={`${process.env.PUBLIC_URL}/register3`} element={<RegisterPage3 />} />
+                <Route path={`${process.env.PUBLIC_URL}/questionanswer`} element={<QuestionAnswerPage />} />
+                <Route path={`${process.env.PUBLIC_URL}/questionpost`} element={<QuestionPostPage />} />
+                <Route path={`${process.env.PUBLIC_URL}/answerdisplay`} element={<AnswerDisplayPage />} />
+
               </Routes>
               <LoadingIndicator loading={isLoading} />
           </Router>

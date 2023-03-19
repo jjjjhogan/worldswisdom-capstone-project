@@ -4,9 +4,8 @@ export default function QuestionDisplay( props ){
     return (
 
         <div className="bg-light border">
-        <div className ="questionProfile">
-          <img src={props.image}></img>
-            <p>{props.user}</p>
+        <div className ="questionCat">
+          <button type="button" className="btn btn-light btn-sm">{props.category}</button>
         </div>
         <div className="questionText">
           <p>{props.text}</p>
