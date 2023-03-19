@@ -1,4 +1,5 @@
 import React from "react";
+import QuestionAnswer from "../components/AnswerDisplay";
 import Question_display_container from "./Question_display_container"
 
 export default function Landing() {
@@ -9,6 +10,7 @@ export default function Landing() {
             <div>
                 <Question_display_container/>
             </div>
+            <QuestionAnswer/>
         </div>
       </div>
     );
