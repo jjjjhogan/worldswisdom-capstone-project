@@ -63,15 +63,15 @@ export default function Landing() {
         <Container>
           <Row>
             {categories.map((category, index) => (
-            <Col key={index} xs={12} md={3} lg={2} className="mb-4">
-            <CardComponent
-              dimension="150px"
-              text={category}
-              image={process.env.PUBLIC_URL + "/img/" + category + ".jpg"}
-              // hyperlink={card.hyperlink}
-            />
-          </Col>
-        ))}
+              <Col key={index} xs={12} md={3} lg={2} className="mb-4">
+                <CardComponent
+                  dimension="150px"
+                  text={category}
+                  image={process.env.PUBLIC_URL + "/img/" + category + ".jpg"}
+                  // hyperlink={card.hyperlink}
+                />
+              </Col>
+            ))}
           </Row>
         </Container>
       </div>

@@ -9,7 +9,6 @@ export default function Question_post_container() {
           <div>
           </div>
           <Question_post />
-          <button type="button" className="btn btn-warning" >post</button>
         </div>
         <div>
        
