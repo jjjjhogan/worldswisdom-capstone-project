@@ -6,6 +6,7 @@ import { getCategories, postQuestion } from "../services/WorldsWisdomCore";
 
 export default function Question_post() {  
   const [categories, setCategories] = useState([]);
+  const [userData, setUserData] = useState(null);
 
   useEffect(() => {
     async function fetchCategories() {
@@ -13,14 +14,20 @@ export default function Question_post() {
       setCategories(categoriesData);
     }
     fetchCategories();
+
+    const data = JSON.parse(sessionStorage.getItem("userData"));
+    if (data) {
+      setUserData(data);
+    }
   }, []);
 
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
+    event.preventDefault();
     const questionTitle = event.target.questionTitle.value;
     const category = event.target.category.value;
-    const userId = "123456"; // this needs to be changed
+    const userId = userData.userId; // this needs to be changed
     const questionObj = await postQuestion(userId, questionTitle, category);
     navigate(-1);
   }
@@ -40,7 +47,7 @@ export default function Question_post() {
           <label className="category">Category</label>
           <select multiple="" className="form-select" id="exampleSelect2" name="category">
               {categories.map((category, index) => (
-                <option key={index} value={category}>{category}</option>
+                <option key={index} value={category.categoryName}>{category.categoryName}</option>
               ))}
               
           </select>
@@ -53,7 +60,6 @@ export default function Question_post() {
       </div>
       <input type="submit" className="btn btn-warning" value="Post"></input>
     </form>
-    <input type='submit' value='Submit'/>
     </Stack>
     </div>
   );

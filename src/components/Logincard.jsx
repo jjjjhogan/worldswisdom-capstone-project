@@ -2,12 +2,18 @@ import "../components/Logincard.css";
 import logo from '../components/logo1.png';
 // import googleLogin from '../components/GoogleLogin.jpg';
 import { GoogleLogin } from '@react-oauth/google';
-import { getGoogleLogin } from "../services/WorldsWisdomCore";
+import { getGoogleLogin, getUserData } from "../services/WorldsWisdomCore";
+import { useNavigate } from "react-router-dom";
 
 export default function Logincard (){
+    const navigate = useNavigate();
+
     const handleLogin = async (googleData) => {
         const res = await getGoogleLogin(googleData.credential);
-        return res;
+        const userId = res.response.sub;
+        const userData = await getUserData(userId);
+        sessionStorage.setItem("userData", JSON.stringify(userData.user));
+        navigate("/");
     }
 
     return (

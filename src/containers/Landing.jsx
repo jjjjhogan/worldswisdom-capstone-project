@@ -6,13 +6,19 @@ import { getCategories } from "../services/WorldsWisdomCore";
 
 export default function Landing() {
   const [categories, setCategories] = useState([]);
+  const [userData, setUserData] = useState(null);
 
   useEffect(() => {
     async function fetchCategories() {
       const categoriesData = await getCategories();
       setCategories(categoriesData);
     }
+
     fetchCategories();
+    const data = JSON.parse(sessionStorage.getItem("userData"));
+    if (data) {
+      setUserData(data);
+    }
   }, []);
 
   const cardsData = [
@@ -57,7 +63,11 @@ export default function Landing() {
   return (
     <div className="d-flex flex-column inner-height landing">
       <div className="d-flex justify-content-start p-3">
-        <h5>Explore your chosen topics</h5>
+        {userData ? (
+          <h5>Welcome back {userData.firstName}! Explore your chosen topics</h5>
+        ) : (
+          <h5>Explore some popular topics</h5>
+        )}
       </div>
       <div className="d-flex justify-content-center">
         <Container>
