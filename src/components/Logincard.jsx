@@ -12,8 +12,13 @@ export default function Logincard (){
         const res = await getGoogleLogin(googleData.credential);
         const userId = res.response.sub;
         const userData = await getUserData(userId);
-        sessionStorage.setItem("userData", JSON.stringify(userData.user));
-        navigate("/");
+        if (userData) {
+            sessionStorage.setItem("userData", JSON.stringify(userData.user));
+            navigate("/");
+        } else {
+            navigate("/register");
+        }
+        
     }
 
     return (
