@@ -24,14 +24,13 @@ function App() {
           <NavBar />
           <Router>
               <Routes>
-{/*                <Route path={`${process.env.PUBLIC_URL}/`} element={<Landing/>}></Route>
+               <Route path={`${process.env.PUBLIC_URL}/`} element={<Landing/>}></Route>
                 <Route path={`${process.env.PUBLIC_URL}/login`} element={<LoginPage />} />
                 <Route path={`${process.env.PUBLIC_URL}/register`} element={<RegisterPage />} />
                 <Route path={`${process.env.PUBLIC_URL}/questionanswer`} element={<QuestionAnswerPage />} />
                 <Route path={`${process.env.PUBLIC_URL}/questionpost`} element={<QuestionPostPage />} />
                 <Route path={`${process.env.PUBLIC_URL}/answerdisplay`} element={<AnswerDisplayPage />} />
-*/}
-                <Route path={`${process.env.PUBLIC_URL}/`} element={<Test/>}></Route>
+                <Route path={`${process.env.PUBLIC_URL}/testUpload`} element={<Test/>}></Route>
 
               </Routes>
               <LoadingIndicator loading={isLoading} />
