@@ -13,8 +13,8 @@ export default function Landing() {
       const categoriesData = await getCategories();
       setCategories(categoriesData);
     }
-
     fetchCategories();
+
     const data = JSON.parse(sessionStorage.getItem("userData"));
     if (data) {
       setUserData(data);
@@ -39,6 +39,33 @@ export default function Landing() {
     }
   ];
 
+  function CategoryCards() {
+    if (userData) {
+      const userCategoryObjs = categories.filter(category => (userData.chosenCategories.includes(category.categoryName)));
+      return userCategoryObjs.map((category, index) => (
+        <Col key={index} xs={12} md={3} lg={2} className="mb-4">
+          <CardComponent
+            dimension="150px"
+            text={category.categoryName}
+            image={process.env.REACT_APP_S3_BASE_PATH + category.categoryImg}
+            // hyperlink={card.hyperlink}
+          />
+        </Col>
+      ));
+    } else {
+      return categories.map((category, index) => (
+        <Col key={index} xs={12} md={3} lg={2} className="mb-4">
+          <CardComponent
+            dimension="150px"
+            text={category.categoryName}
+            image={process.env.REACT_APP_S3_BASE_PATH + category.categoryImg}
+            // hyperlink={card.hyperlink}
+          />
+        </Col>
+      ));
+    }
+  }
+
   return (
     <div className="d-flex flex-column inner-height landing">
       <div className="d-flex justify-content-start p-3">
@@ -51,16 +78,7 @@ export default function Landing() {
       <div className="d-flex justify-content-center">
         <Container>
           <Row>
-            {categories.map((category, index) => (
-              <Col key={index} xs={12} md={3} lg={2} className="mb-4">
-                <CardComponent
-                  dimension="150px"
-                  text={category.categoryName}
-                  image={process.env.REACT_APP_S3_BASE_PATH + category.categoryImg}
-                  // hyperlink={card.hyperlink}
-                />
-              </Col>
-            ))}
+            <CategoryCards />
           </Row>
         </Container>
       </div>
