@@ -21,27 +21,6 @@ export default function Landing() {
     }
   }, []);
 
-  const cardsData = [
-    {
-      dimension: '150px',
-      text: 'History',
-      image: "https://static01.nyt.com/images/2021/01/18/us/18MLK-1963b/18MLK-1963b-mediumSquareAt3X.jpg",
-      hyperlink: '/history-questions'
-    },
-    {
-      dimension: '150px',
-      text: 'Science',
-      image: 'https://www.lupusuk.org.uk/wp-content/uploads/2017/10/dna-1811955_1920-square.jpg',
-      hyperlink: '/science-questions'
-    },
-    {
-      dimension: '150px',
-      text: 'Art',
-      image: 'https://m.media-amazon.com/images/I/A1G-rHtofxL._AC_UY1000_.jpg',
-      hyperlink: '/math-questions'
-    }
-  ];
-
   const carouselData = [
     {
       id: 1,

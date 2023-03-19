@@ -1,9 +1,9 @@
 import React from "react";
 // import Register_categories from '../components/Register_categories';
 // import Register_info from "../components/Register_info";
-import Wisdom_info from "../components/Wisdom_info";
+import WisdomInfo from "../components/WisdomInfo";
 
-export default function Landing() {
+export default function RegisterForm2() {
 
     return (
       <div className="d-flex flex-column inner-height landing">
@@ -12,7 +12,7 @@ export default function Landing() {
             <br />
             <br />
             <div>
-                <Wisdom_info/>
+                <WisdomInfo/>
             </div>
         </div>
       </div>
