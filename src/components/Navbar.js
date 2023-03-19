@@ -6,7 +6,7 @@ export default function NavBar() {
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    const data = JSON.parse(sessionStorage.getItem("userData"));
+    const data = JSON.parse(sessionStorage.getItem("userData") || null);
     if (data) {
       setUserData(data);
     }
