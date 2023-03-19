@@ -1,36 +1,47 @@
 import React from "react";
 import Stack from 'react-bootstrap/Stack';
 import "../components/Question_post_style.css"
+import { postQuestion } from "../services/WorldsWisdomCore";
+export default function Question_post() 
+{
+  const [categories, setCategories] = useState([]);
 
-export default function Question_post() {  
+  useEffect(() => {
+    async function fetchCategories() {
+      const categoriesData = await getCategories();
+      setCategories(categoriesData);
+    }
+    fetchCategories();
+  }, []); 
+  async function onSubmit(title,question_category){
+    userId = ""
+    const questionObj = await postQuestion(userId,title,question_category)
+  }
   return (
+
     <div>
     <Stack gap={50}>
-    <form>
+    <form onSubmit={onSubmit}>
     <div className="form-group">
         <label  className="title">Title</label>
-        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Title for you question"></input>
+        <input type="Title" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Title for you question"></input>
 
     </div>
     
     <div className="form-group">
         <label className="category">Category</label>
         <select multiple="" className="form-select" id="exampleSelect2">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+            {categories.map((category, index)=>(
+                <option value={category}>{category}</option>
+            ))}
+          
         </select>
     </div>
-    <div className="bg-light border">
-    <div className="form-group">
-        <label className="description">Description</label>
-        <textarea className="form-control" id="exampleTextarea" rows="3" spellcheck="false"></textarea>
-    </div>
-    </div>
+    <br />
     </form>
+    <input type='submit' value='Submit'/>
     </Stack>
     </div>
   );
 }
+
