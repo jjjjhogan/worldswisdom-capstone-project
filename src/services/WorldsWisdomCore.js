@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // get all the categories in the database
 // parameter: none
-// return: list of category 
+// return: list of category objects
 export const getCategories = async () => {
   try {
     const { data } = await axios.get(

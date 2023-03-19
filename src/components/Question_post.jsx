@@ -1,36 +1,67 @@
-import React from "react";
+import { React, useState, useEffect} from "react";
 import Stack from 'react-bootstrap/Stack';
-import "../components/Question_post_style.css"
+import { useNavigate } from "react-router-dom";
+import "../components/Question_post_style.css";
+import { getCategories, postQuestion } from "../services/WorldsWisdomCore";
 
 export default function Question_post() {  
+  const [categories, setCategories] = useState([]);
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    async function fetchCategories() {
+      const categoriesData = await getCategories();
+      setCategories(categoriesData);
+    }
+    fetchCategories();
+
+    const data = JSON.parse(sessionStorage.getItem("userData"));
+    if (data) {
+      setUserData(data);
+    }
+  }, []);
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const questionTitle = event.target.questionTitle.value;
+    const category = event.target.category.value;
+    const userId = userData.userId; // this needs to be changed
+    const questionObj = await postQuestion(userId, questionTitle, category);
+    navigate(-1);
+  }
+
   return (
+
     <div>
     <Stack gap={50}>
-    <form>
-    <div className="form-group">
-        <label  className="title">Title</label>
-        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Title for you question"></input>
+    <form onSubmit={handleSubmit}>
+      <div className="form-group">
+          <label  className="title">Title</label>
+          <input name="questionTitle" className="form-control" id="exampleInputEmail1" placeholder="Title for your question"></input>
 
-    </div>
-    
-    <div className="form-group">
-        <label className="category">Category</label>
-        <select multiple="" className="form-select" id="exampleSelect2">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-        </select>
-    </div>
-    <div className="bg-light border">
-    <div className="form-group">
-        <label className="description">Description</label>
-        <textarea className="form-control" id="exampleTextarea" rows="3" spellcheck="false"></textarea>
-    </div>
-    </div>
+      </div>
+      
+      <div className="form-group">
+          <label className="category">Category</label>
+          <select multiple="" className="form-select" id="exampleSelect2" name="category">
+              {categories.map((category, index) => (
+                <option key={index} value={category.categoryName}>{category.categoryName}</option>
+              ))}
+              
+          </select>
+      </div>
+      <div className="bg-light border">
+      <div className="form-group">
+          <label className="description">Description</label>
+          <textarea className="form-control" id="exampleTextarea" rows="3" spellCheck="false"></textarea>
+      </div>
+      </div>
+      <input type="submit" className="btn btn-warning" value="Post"></input>
     </form>
     </Stack>
     </div>
   );
 }
+

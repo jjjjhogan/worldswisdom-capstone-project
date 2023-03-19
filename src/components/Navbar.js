@@ -1,7 +1,23 @@
 import Dropdown from "./Dropdown";
 import logo from "./logo1.png";
+import { useEffect, useState } from "react";
 
 export default function NavBar() {
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    const data = JSON.parse(sessionStorage.getItem("userData"));
+    if (data) {
+      setUserData(data);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    setUserData(null);
+    sessionStorage.removeItem("userData");
+    window.location.reload();
+  }
+
   return (
     <nav className="navbar navbar-dark bg-primary">
       <div className="container-fluid">
@@ -26,7 +42,13 @@ export default function NavBar() {
         </nav>
 
         <nav className="nav-item">
-          <a href="/login" className="btn btn-primary">Login</a>
+          {userData ?
+          (
+            <button className="btn btn-primary" onClick={handleLogout}>Logout</button>
+          ) : (
+            <a href="/login" className="btn btn-primary">Login</a>
+          )}
+          
         </nav>
 
         <nav className="nav-item">

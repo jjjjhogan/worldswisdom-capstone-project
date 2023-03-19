@@ -8,6 +8,7 @@ import RegisterPage from "./containers/RegisterPage";
 import RegisterPage2 from "./containers/RegisterPage2";
 import RegisterPage3 from "./containers/RegisterPage3";
 import NavBar from "./components/Navbar";
+import Question_post_container from "./containers/Question_post_container";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import QuestionAnswerPage from "./containers/QuestionAnswerPage"
 import QuestionPostPage from "./containers/QuestionPostPage"
