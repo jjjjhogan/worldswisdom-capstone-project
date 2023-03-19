@@ -66,8 +66,8 @@ export default function Landing() {
               <Col key={index} xs={12} md={3} lg={2} className="mb-4">
                 <CardComponent
                   dimension="150px"
-                  text={category}
-                  image={process.env.PUBLIC_URL + "/img/" + category + ".jpg"}
+                  text={category.categoryName}
+                  image={process.env.REACT_APP_S3_BASE_PATH + category.categoryImg}
                   // hyperlink={card.hyperlink}
                 />
               </Col>
