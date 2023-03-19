@@ -26,6 +26,7 @@ export default function Question_post() {
   }
 
   return (
+
     <div>
     <Stack gap={50}>
     <form onSubmit={handleSubmit}>
@@ -52,7 +53,9 @@ export default function Question_post() {
       </div>
       <input type="submit" className="btn btn-warning" value="Post"></input>
     </form>
+    <input type='submit' value='Submit'/>
     </Stack>
     </div>
   );
 }
+
