@@ -21,14 +21,16 @@ export default function QuestionDisplay( props ){
 
     return (
       <div>
-        <h1>{categories}</h1>
+        <div style={{ textAlign: "center" }}>
+          <h1>{searchQuery}</h1>
+        </div>
         {categories.map((category, index) => (
-          <div className="bg-light border" key={index} style={{}}>
+          <div className="bg-light border" key={index} >
             <div className="questionCat">
               <button type="button" className="btn btn-light btn-sm">{category}</button>
             </div>
             <div className="questionText">
-              <p>{questionText[index]}</p>
+              <h5>{questionText[index]}</h5>
               <button type="button" className="btn btn-light btn-sm">reply</button>
             </div>
           </div>
