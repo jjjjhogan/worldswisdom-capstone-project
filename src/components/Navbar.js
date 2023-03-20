@@ -35,8 +35,8 @@ export default function NavBar() {
         </a>
 
         <nav className="nav-item">
-          <form className="d-flex">
-            <input className="form-control me-sm-2" type="search" placeholder="Search"/>
+          <form className="d-flex" action="/searchQuestion">
+            <input className="form-control me-sm-2" name="search" type="text" placeholder="Search"/>
             <button className="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
           </form>
         </nav>

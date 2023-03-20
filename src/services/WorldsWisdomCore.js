@@ -182,10 +182,11 @@ export const postAnswer = async (
 // parameter: none
 // return: 
 // list of question object
-export const search = async () => {
+export const search = async (input) => {
   try {
-    const { data } = await axios.get(
+    const { data } = await axios.post(
       `${WORLDS_WISDOM_CORE[process.env.NODE_ENV].URL}/api/v0/search`,
+      { input }
     );
     return data;
   } catch (error) {
