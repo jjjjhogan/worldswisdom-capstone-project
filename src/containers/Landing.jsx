@@ -66,7 +66,7 @@ export default function Landing() {
             dimension="150px"
             text={category.categoryName}
             image={process.env.REACT_APP_S3_BASE_PATH + category.categoryImg}
-            // hyperlink={card.hyperlink}
+            onClick={onCategoryClick}
           />
         </Col>
       ));
