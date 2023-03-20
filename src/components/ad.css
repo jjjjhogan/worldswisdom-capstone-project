@@ -1,3 +1,5 @@
+
+
 .answer{
     width: 70%;
     max-width:700px;
@@ -10,7 +12,7 @@
 }
 
 .card-text{
-    float: left;
+    float: middle;
 }
 
 .pfimage{
@@ -18,7 +20,28 @@
 }
 
 
-
 .reflect{
-    float: right;
+    float: left;
 }
+
+.profimage p{ 
+    display: flex;
+    position: relative;
+    left: 60px;
+    bottom: 5px;
+}
+
+.profimage img{
+    display: flex;
+    position: relative;
+    width: 30px;
+    top: 20px;
+    left: 20px;
+}
+
+.vid-player {
+    display: flex;
+    position:relative;
+    right: -350px;
+}
+

@@ -94,9 +94,10 @@ code {
 }
 
 .questionCat button{
+  display: flex;
   position:relative;
   top: 10px;
-  right: 580px;
+  left: 20px;
   overflow: hidden;
   cursor: pointer;
 }
@@ -104,13 +105,15 @@ code {
 
 
 .questionText p{
-  position:relative;
+  display: flex;
+  position: relative;
   top: 20px;
-  right: 530px;
+  left: 20px;
 }
 
 .questionText button{
-  position:relative;
+  display: flex;
+  position: relative;
   bottom: 10px;
-  left: 600px;
+  left: 1200px;
 }
