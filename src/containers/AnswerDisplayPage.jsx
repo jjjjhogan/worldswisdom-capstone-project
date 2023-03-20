@@ -10,7 +10,7 @@ export default function Landing() {
             <div>
                 <Question_display_container/>
             </div>
-            <QuestionAnswer/>
+            <QuestionAnswer url = {'1679203307396'}/>
         </div>
       </div>
     );

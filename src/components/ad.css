@@ -1,20 +1,15 @@
-.answer{
-    width: 70%;
-    max-width:700px;
-    margin: 0 auto;
-    padding: 2%;
-    display: "flex";
-    justify-content: 'center';
-    align-items: 'center';
-    height: '100%';
-}
+
 
 .card-text{
-    float: left;
+    position: relative;
+    right: 240px;
+    bottom: 30px;
 }
 
-.pfimage{
-    float: left;
+.profimage img{
+    position: relative;
+    width: 30px;
+    right: 310px;
 }
 
 
