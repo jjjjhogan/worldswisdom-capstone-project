@@ -11,7 +11,9 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import QuestionAnswerPage from "./containers/QuestionAnswerPage";
 import QuestionPostPage from "./containers/QuestionPostPage";
 import AnswerDisplayPage from "./containers/AnswerDisplayPage";
-import QuestionSearch from "./containers/QuestionSearch"
+// import QuestionSearch from "./containers/QuestionSearch"
+import QuestionSearchPage from "./containers/QuestionSearchPage";
+import Question_display_container from "./containers/Question_display_container";
 
 import Test from "./Test";
 
@@ -31,8 +33,9 @@ function App() {
                 <Route path={`${process.env.PUBLIC_URL}/questionanswer`} element={<QuestionAnswerPage />} />
                 <Route path={`${process.env.PUBLIC_URL}/questionpost`} element={<QuestionPostPage />} />
                 <Route path={`${process.env.PUBLIC_URL}/answerdisplay`} element={<AnswerDisplayPage />} />
-                <Route path={`${process.env.PUBLIC_URL}/searchQuestion`} element={<QuestionSearch />} />
+                <Route path={`${process.env.PUBLIC_URL}/searchQuestion`} element={<QuestionSearchPage />} />
                 <Route path={`${process.env.PUBLIC_URL}/testUpload`} element={<Test/>}></Route>
+                <Route path={`${process.env.PUBLIC_URL}/questiondisplay`} element={<Question_display_container/>}></Route>
 
               </Routes>
               <LoadingIndicator loading={isLoading} />
