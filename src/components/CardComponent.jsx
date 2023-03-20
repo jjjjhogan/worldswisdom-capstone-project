@@ -18,7 +18,8 @@ export default CardComponent;
 const CardComponent = (props) => {
   return (
     <Card 
-      style={{ width: props.dimension, height: props.dimension }}>
+      style={{ width: props.dimension, height: props.dimension }}
+      onClick={props.onClick}>
       <Card.Img 
         style={{ height: props.dimension, objectFit: "cover" }}
         src={props.image} 

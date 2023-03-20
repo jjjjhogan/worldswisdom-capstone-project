@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import CardComponent from "../components/CardComponent";
 import CarouselComponent from "../components/Carousel";
 import { getCategories } from "../services/WorldsWisdomCore";
+import { useNavigate } from "react-router-dom";
 
 export default function Landing() {
   const [categories, setCategories] = useState([]);
@@ -38,6 +39,12 @@ export default function Landing() {
       title: 'Art',
     }
   ];
+  const navigate = useNavigate();
+  const onCategoryClick = (event) => {
+    event.preventDefault();
+    const searchQuery = "?categoryName=" + event.target.textContent;
+    navigate({pathname: "/category", search: searchQuery});
+  }
 
   function CategoryCards() {
     if (userData) {
@@ -48,7 +55,7 @@ export default function Landing() {
             dimension="150px"
             text={category.categoryName}
             image={process.env.REACT_APP_S3_BASE_PATH + category.categoryImg}
-            // hyperlink={card.hyperlink}
+            onClick={onCategoryClick}
           />
         </Col>
       ));
