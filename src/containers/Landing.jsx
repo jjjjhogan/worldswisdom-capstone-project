@@ -42,8 +42,8 @@ export default function Landing() {
   const navigate = useNavigate();
   const onCategoryClick = (event) => {
     event.preventDefault();
-    const searchQuery = "?categoryName=" + event.target.textContent;
-    navigate({pathname: "/category", search: searchQuery});
+    const searchQuery = "?categoryname=" + event.target.textContent;
+    navigate({pathname: "/questiondisplay", search: searchQuery});
   }
 
   function CategoryCards() {
