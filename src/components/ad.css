@@ -21,17 +21,27 @@
 
 
 .reflect{
-    float: right;
+    float: left;
 }
 
-.proftext{ 
+.profimage p{ 
+    display: flex;
     position: relative;
-    left: 40px;
+    left: 60px;
+    bottom: 5px;
 }
 
 .profimage img{
+    display: flex;
     position: relative;
     width: 30px;
-    right: 610px;
+    top: 20px;
+    left: 20px;
+}
+
+.vid-player {
+    display: flex;
+    position:relative;
+    right: -350px;
 }
 
