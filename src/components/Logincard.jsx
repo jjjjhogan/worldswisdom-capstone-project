@@ -11,8 +11,11 @@ export default function Logincard (){
     const handleLogin = async (googleData) => {
         const res = await getGoogleLogin(googleData.credential);
         const userId = res.response.sub;
+        const email = res.response.email;
+        sessionStorage.setItem("userId", userId);
+        sessionStorage.setItem("email", email);
         const userData = await getUserData(userId);
-        if (userData) {
+        if (userData.user) {
             sessionStorage.setItem("userData", JSON.stringify(userData.user));
             navigate("/");
         } else {

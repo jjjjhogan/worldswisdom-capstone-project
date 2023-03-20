@@ -13,34 +13,13 @@ export default function Landing() {
       const categoriesData = await getCategories();
       setCategories(categoriesData);
     }
-
     fetchCategories();
+
     const data = JSON.parse(sessionStorage.getItem("userData"));
     if (data) {
       setUserData(data);
     }
   }, []);
-
-  const cardsData = [
-    {
-      dimension: '150px',
-      text: 'History',
-      image: "https://static01.nyt.com/images/2021/01/18/us/18MLK-1963b/18MLK-1963b-mediumSquareAt3X.jpg",
-      hyperlink: '/history-questions'
-    },
-    {
-      dimension: '150px',
-      text: 'Science',
-      image: 'https://www.lupusuk.org.uk/wp-content/uploads/2017/10/dna-1811955_1920-square.jpg',
-      hyperlink: '/science-questions'
-    },
-    {
-      dimension: '150px',
-      text: 'Art',
-      image: 'https://m.media-amazon.com/images/I/A1G-rHtofxL._AC_UY1000_.jpg',
-      hyperlink: '/math-questions'
-    }
-  ];
 
   const carouselData = [
     {
@@ -60,6 +39,33 @@ export default function Landing() {
     }
   ];
 
+  function CategoryCards() {
+    if (userData) {
+      const userCategoryObjs = categories.filter(category => (userData.chosenCategories.includes(category.categoryName)));
+      return userCategoryObjs.map((category, index) => (
+        <Col key={index} xs={12} md={3} lg={2} className="mb-4">
+          <CardComponent
+            dimension="150px"
+            text={category.categoryName}
+            image={process.env.REACT_APP_S3_BASE_PATH + category.categoryImg}
+            // hyperlink={card.hyperlink}
+          />
+        </Col>
+      ));
+    } else {
+      return categories.map((category, index) => (
+        <Col key={index} xs={12} md={3} lg={2} className="mb-4">
+          <CardComponent
+            dimension="150px"
+            text={category.categoryName}
+            image={process.env.REACT_APP_S3_BASE_PATH + category.categoryImg}
+            // hyperlink={card.hyperlink}
+          />
+        </Col>
+      ));
+    }
+  }
+
   return (
     <div className="d-flex flex-column inner-height landing">
       <div className="d-flex justify-content-start p-3">
@@ -72,16 +78,7 @@ export default function Landing() {
       <div className="d-flex justify-content-center">
         <Container>
           <Row>
-            {categories.map((category, index) => (
-              <Col key={index} xs={12} md={3} lg={2} className="mb-4">
-                <CardComponent
-                  dimension="150px"
-                  text={category.categoryName}
-                  image={process.env.REACT_APP_S3_BASE_PATH + category.categoryImg}
-                  // hyperlink={card.hyperlink}
-                />
-              </Col>
-            ))}
+            <CategoryCards />
           </Row>
         </Container>
       </div>
