@@ -21,13 +21,13 @@ export default function RegisterPage() {
   function updateFormData(newData) {
     setFormData({ ...formData, ...newData });
   }
-  
+
   async function submitForm() {
     const userId = sessionStorage.getItem("userId");
     const email = sessionStorage.getItem("email");
     const data = {...formData, email, userId};
     const res = await postUserData(data);
-    sessionStorage.setItem("userData", JSON.stringify(res.savedUser));
+    sessionStorage.setItem("userData", JSON.stringify(res.user));
     navigate("/");
   }
 
