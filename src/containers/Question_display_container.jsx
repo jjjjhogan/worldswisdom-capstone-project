@@ -13,10 +13,6 @@ export default function Question_display_container() {
             <Question_display/>
           </div>
         </div>
-
-        <div>
-          <ReactPlayer url={process.env.REACT_APP_S3_BASE_PATH + '1679203307396'} controls={true}/>
-        </div>
       </div>
     );
   }
