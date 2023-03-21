@@ -2,6 +2,40 @@ div.card:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+
+div.d-flex.justify-content-center.align-items-end.bg-body.text-dark{
+    margin: 30px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.6;
+}
+
+p.card-text {
+    color: #000000
+}
+
+.card-img-overlay {
+    text-align: right;
+    align-content: end;
+}
+
 div.carousel.slide:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.carousel-caption {
+    background-color: #ffffff;
+    border: 1px solid black;
+    border-radius: 5px;
+    opacity: 0.6;
+}
+
+.carousel-caption p{
+    color: #000000;
+    opacity: 100%;
+}
+
+div.carousel-caption > h3{
+    color: black;
+    opacity: 100%;
 }
