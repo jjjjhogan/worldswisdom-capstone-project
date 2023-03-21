@@ -4,6 +4,7 @@ import CardComponent from "../components/CardComponent";
 import CarouselComponent from "../components/Carousel";
 import { getCategories } from "../services/WorldsWisdomCore";
 import { useNavigate } from "react-router-dom";
+import RecentAnswersContainer from "./RecentAnswersContainer";
 import "./Landing.css";
 
 export default function Landing() {
@@ -84,7 +85,7 @@ export default function Landing() {
         )}
       </div>
       <div className="d-flex justify-content-center">
-        <Container>
+        <Container className="py-0">
           <Row>
             <CategoryCards />
           </Row>
@@ -101,9 +102,8 @@ export default function Landing() {
         <CarouselComponent items={carouselData} />
       </div>
       <hr/>
-      <div className="d-flex justify-content-start p-3">
-        <h5>Recently answered questions</h5>
-      </div>
+      
+        <RecentAnswersContainer />
     </div>
     
   );

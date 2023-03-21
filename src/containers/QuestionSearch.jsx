@@ -1,5 +1,5 @@
 import {React, useState, useEffect } from "react";
-import QuestionDisplay from "../components/Question_display";
+import QuestionsDisplay from "../components/QuestionsDisplay";
 import { search } from "../services/WorldsWisdomCore";
 
 export default function QuestionSearch({searchQuery}) {
@@ -15,10 +15,6 @@ export default function QuestionSearch({searchQuery}) {
       }, []);
 
     return (
-      <div>
-        {questions.map((question, index) => (
-          <QuestionDisplay question={question} key={index}/>
-        ))}
-      </div>
+      <QuestionsDisplay questions={questions}/>
     );
   }

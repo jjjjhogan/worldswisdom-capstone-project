@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 export default function QuestionDisplay( { question } ){
   const navigate = useNavigate();
   const onQuestionClick = (event) => {
-    console.log(question);
     event.preventDefault();
     const searchQuery = "?questionid=" + question._id;
     navigate({pathname: "/answerdisplay", search: searchQuery});
@@ -12,9 +11,7 @@ export default function QuestionDisplay( { question } ){
 
   return (
     <div onClick={onQuestionClick}>
-      <div style={{ textAlign: "center" }}>
-      </div>
-        <div className="bg-light border"  >
+        <div className="bg-light border">
           <div className="questionCat">
             <button type="button" className="btn btn-light btn-sm">{question.categories}</button>
           </div>

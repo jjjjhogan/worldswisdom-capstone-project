@@ -8,8 +8,8 @@ export default function QuestionSearchPage() {
   const searchQuery = searchParams.get("search");
 
   return (
-    <div className="d-flex flex-column inner-height landing">
-      <div className="container flex-grow-1 text-center d-flex flex-column justify-content-center">
+    <div className="d-flex flex-column">
+      <div className="container py-1 flex-grow-1 text-center justify-content-center" style={{ width: "80%" }}>
         <div>
           <div style={{ textAlign: "center" }}>
             <h1>Most similar to "{searchQuery}"</h1>
