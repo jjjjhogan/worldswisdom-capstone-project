@@ -14,7 +14,7 @@ export default function NavBar() {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container-fluid">
+      <div className="container-fluid nav-fill w-100">
         <a
           className="navbar-brand align-text-bottom"
           href={`${process.env.PUBLIC_URL}/`}
@@ -30,7 +30,9 @@ export default function NavBar() {
 
         <nav className="nav-item">
           <form className="d-flex" action="/searchQuestion">
+          <div className="w-100 d-inline-block">
             <input className="form-control me-sm-2" name="search" type="text" placeholder="Search"/>
+            </div>
             <button className="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
           </form>
         </nav>
