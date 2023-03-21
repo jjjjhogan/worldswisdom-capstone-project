@@ -45,6 +45,7 @@ export default function Question_answer(props) {
 
   useEffect(() => {
     const questionId = searchParams.get("questionId");
+    setQuestionId(questionId);
     const data = JSON.parse(sessionStorage.getItem("userData"));
     if (data) {
       setUserData(data);
@@ -67,7 +68,9 @@ export default function Question_answer(props) {
       setIsLoading(false);
       if (payload){
         const searchQuery = "?questionId=" + questionId;
-        navigate({pathname: "/answerdisplay", search: searchQuery});
+        // navigate({pathname: "/answerdisplay", search: searchQuery});
+        navigate(-1);
+        // window.location.reload();
       }
       else{
         alert("connection error, please try again");
@@ -109,7 +112,7 @@ export default function Question_answer(props) {
     <form>
     
     <div className="form-group">
-        <label for="exampleInputEmail1" className="title">Description</label>
+        <label htmlFor="exampleInputEmail1" className="title">Description</label>
         <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Description"></input>
     </div>
     <br/>
@@ -117,11 +120,11 @@ export default function Question_answer(props) {
     <label className="label">Answer Type:</label>
       <div className="form-check video" style={{display:'inline-block'}}>
         <input className="form-check-input" type="radio" defaultChecked name="optionsRadios" id="optionsRadios1" value="option1" ></input>
-        <label className="form-check-label" for="optionsRadios1">Video</label>
+        <label className="form-check-label" htmlFor="optionsRadios1">Video</label>
       </div>
       <div className="form-check audio" style={{display:'inline-block'}}>
         <input className="form-check-input" type="radio" name="optionsRadios" id="optionsRadios2" value="option2"></input>
-        <label className="form-check-label" for="optionsRadios2">Audio</label>
+        <label className="form-check-label" htmlFor="optionsRadios2">Audio</label>
       </div>
       </div>
       <br/>

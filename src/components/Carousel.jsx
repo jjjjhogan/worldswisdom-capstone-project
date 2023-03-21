@@ -1,54 +1,37 @@
 import React from 'react';
 import { Carousel, CarouselItem } from "react-bootstrap";
+import { useNavigate } from 'react-router-dom';
 
-const CarouselComponent = ({items}) => {
+const CarouselComponent = ({questions, categories}) => {
+  const navigate = useNavigate();
+  const getCategoryImg = (question) => {
+    console.log(question);
+    let category = categories.find(category => category.categoryName == question.categories);
+    if (category) {
+      return category.categoryImg;
+    } else {
+      return "";
+    }
+  }
+  const onQuestionClick = (question) => {
+    const searchQuery = "?questionid=" + question._id;
+    navigate({pathname: "/answerdisplay", search: searchQuery});
+  };
+
   return (
       <Carousel style={{ width: '450px', height: '250px' }}>
-        {items.map(item => (
-          <CarouselItem key={item.id}>
-            <a href="/history">
+        {questions.map((question, index) => (
+          <CarouselItem key={index} onClick={() => onQuestionClick(question)}>
             <img
-              src={item.imageSrc}
-              alt={item.title}
-              style={{ width: '450px', height: '250px'  }}
+              src={process.env.REACT_APP_S3_BASE_PATH + getCategoryImg(question)}
+              style={{ width: '450px', height: '250px', objectFit: "cover" }}
               className="rounded"
             />
             <Carousel.Caption>
-              <h3>{item.title}</h3>
-              <p>Click here to see {item.title} related questions.</p>
+              <h3>{question.categories}</h3>
+              <p>{question.questionText}</p>
             </Carousel.Caption>
-          </a>
         </CarouselItem>
-        /*<Carousel.Item>
-          <a href="/science">
-            <img
-              src="https://static.scientificamerican.com/sciam/cache/file/7B4F3D12-2083-457B-A709F561FC4E696D_source.jpg"
-              alt="Science"
-              style={{ width: '450px', height: '250px'  }}
-              className="rounded"
-              //className="d-block w-100"
-            />
-            <Carousel.Caption>
-              <h3>Science</h3>
-              <p>Click here to see science related questions.</p>
-            </Carousel.Caption>
-          </a>
-        </Carousel.Item>
-        <Carousel.Item>
-          <a href="/art">
-            <img
-              src="https://cdn.britannica.com/78/43678-050-F4DC8D93/Starry-Night-canvas-Vincent-van-Gogh-New-1889.jpg"
-              alt="Art"
-              style={{ width: '450px', height: '250px'  }}
-              className="rounded"
-              //className="d-block w-100"
-            />
-            <Carousel.Caption>
-              <h3>Art</h3>
-              <p>Click here to see art related questions.</p>
-            </Carousel.Caption>
-          </a>
-        </Carousel.Item>*/
         ))}
       </Carousel>
   );

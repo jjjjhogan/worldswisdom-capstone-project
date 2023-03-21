@@ -1,11 +1,16 @@
 import React from "react";
 import QuestionSearch from "../containers/QuestionSearch";
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 
 
 export default function QuestionSearchPage() {
   const [searchParams] = useSearchParams();
   const searchQuery = searchParams.get("search");
+  const navigate = useNavigate();
+  const clickNewQuestion = () => {
+    navigate("/questionpost");
+  }
+
 
   return (
     <div className="d-flex flex-column">
@@ -13,7 +18,7 @@ export default function QuestionSearchPage() {
         <div>
           <div style={{ textAlign: "center" }}>
             <h1>Most similar to "{searchQuery}"</h1>
-            <h3>Don't see your question below? <button type="button" className="btn btn-primary">Post Question</button></h3>
+            <h3>Don't see your question below? <button type="button" className="btn btn-primary" onClick={clickNewQuestion}>New Question</button></h3>
           </div>
           <QuestionSearch searchQuery={searchQuery}/>
         </div>

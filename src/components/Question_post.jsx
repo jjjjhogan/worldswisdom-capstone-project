@@ -38,8 +38,8 @@ export default function Question_post() {
     <Stack gap={50}>
     <form onSubmit={handleSubmit}>
       <div className="form-group">
-          <label  className="title">Title</label>
-          <input name="questionTitle" className="form-control" id="exampleInputEmail1" placeholder="Title for your question"></input>
+          <label  className="title">Question</label>
+          <input name="questionTitle" className="form-control" id="exampleInputEmail1" placeholder="What is your question?"></input>
 
       </div>
       
@@ -51,12 +51,6 @@ export default function Question_post() {
               ))}
               
           </select>
-      </div>
-      <div className="bg-light border">
-      <div className="form-group">
-          <label className="description">Description</label>
-          <textarea className="form-control" id="exampleTextarea" rows="3" spellCheck="false"></textarea>
-      </div>
       </div>
       <input type="submit" className="btn btn-warning" value="Post"></input>
     </form>
