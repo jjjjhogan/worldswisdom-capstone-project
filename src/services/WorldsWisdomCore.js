@@ -158,20 +158,22 @@ export const getRecentlyAnsweredQuestions = async () => {
 
 // parameter: 
   // questionId,
-  // videoKey,
+  // file,
   // userId,
   // description
 // return: answer object
 export const postAnswer = async (
-  questionId,
-  userId,
-  description,
-  file
+  answerObject
   ) => {
   try {
+    console.log(answerObject)
     const { data } = await axios.post(
       `${WORLDS_WISDOM_CORE[process.env.NODE_ENV].URL}/api/v0/answer/postAnswer`,
-      { questionId, userId, description, file }
+      answerObject, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
     );
     return data;
   } catch (error) {
