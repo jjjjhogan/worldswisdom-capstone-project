@@ -1,8 +1,9 @@
 import Stack from 'react-bootstrap/Stack';
 import "../components/Question_answer_style.css"
 import React, { useMemo, useState, useCallback } from "react";
-
-import {useDropzone} from 'react-dropzone'
+import {useDropzone} from 'react-dropzone';
+import { postAnswer } from "../services/WorldsWisdomCore";
+import { useNavigate } from "react-router-dom";
 
 const baseStyle = {
   flex: 1,
@@ -32,11 +33,42 @@ const rejectStyle = {
   borderColor: '#ff1744'
 };
 
-export default function Question_answer() {
+export default function Question_answer(props) {
+  const [isLoading, setIsLoading] = useState(props);
+  const [questionId, setQuestionId] = useState();
+  const [description, setDescription] = useState();
   const [file, setFile] = useState([]);
+  const navigate = useNavigate();
+
 	const onDrop = useCallback(acceptedFile => {
 		setFile(acceptedFile);
-	})
+	},[setFile]);
+
+  const handleSubmit = async () => {
+    console.log("here")
+    console.log("file here:" , file)
+    setIsLoading(true);
+    try {
+      const { payload }= await postAnswer({ 
+        questionId: "6417c344078484727ae3beea",
+        userId: "101766488061043369538",
+        description: "hihi",
+        file
+      });
+      setIsLoading(false);
+      if (payload){
+        const searchQuery = "?questionId=" + questionId;
+        navigate({pathname: "/answerdisplay", search: searchQuery});
+      }
+      else{
+        console.log("connection error, please try again");
+      }
+
+    } catch(error) {
+      setIsLoading(false);
+      console.log(error);
+    }
+  } 
 
   const {
     getRootProps,
@@ -96,7 +128,7 @@ export default function Question_answer() {
     </form>
     </Stack>
     <br/>
-    <button type="button" className="btn btn-warning">Submit</button>
+    <button type="button" className="btn btn-warning" onClick={handleSubmit}>Submit</button>
     </div>
   );
 }
