@@ -1,8 +1,9 @@
 import Stack from 'react-bootstrap/Stack';
 import "../components/Question_answer_style.css"
-import React, { useMemo, useState, useCallback } from "react";
-
-import {useDropzone} from 'react-dropzone'
+import React, { useMemo, useState, useCallback, useEffect } from "react";
+import {useDropzone} from 'react-dropzone';
+import { postAnswer } from "../services/WorldsWisdomCore";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const baseStyle = {
   flex: 1,
@@ -32,11 +33,51 @@ const rejectStyle = {
   borderColor: '#ff1744'
 };
 
-export default function Question_answer() {
+
+export default function Question_answer(props) {
+  const [userData, setUserData] = useState(null);
+  const [isLoading, setIsLoading] = useState(props);
+  const [description, setDescription] = useState();
+  const [searchParams] = useSearchParams();
   const [file, setFile] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const questionId = searchParams.get("questionId");
+    const data = JSON.parse(sessionStorage.getItem("userData"));
+    if (data) {
+      setUserData(data);
+    }
+  }, []);
+
 	const onDrop = useCallback(acceptedFile => {
-		setFile(acceptedFile);
-	})
+		setFile(acceptedFile[0]);
+	},[setFile]);
+
+  const handleSubmit = async () => {
+    setIsLoading(true);
+    try {
+      const { payload }= await postAnswer({ 
+        questionId: questionId,
+        userId: userData.userId,
+        description: description,
+        file
+      });
+      setIsLoading(false);
+      if (payload){
+        const searchQuery = "?questionId=" + questionId;
+        navigate({pathname: "/answerdisplay", search: searchQuery});
+      }
+      else{
+        alert("connection error, please try again");
+      }
+
+    } catch(error) {
+      setIsLoading(false);
+      alert("connection error");
+      console.log(error);
+    }
+  } 
 
   const {
     getRootProps,
@@ -85,18 +126,18 @@ export default function Question_answer() {
       <br/>
       <div className="container">
       <div {...getRootProps({style})}>
-        <input {...getInputProps()} accept="video/*, audio/*"/>
+        <input {...getInputProps()} name="file" accept="video/*, audio/*"/>
         <p>Click to choose wisdom or drag 'n drop your wisdom!</p>
       </div>
       { file!='' ? (
       <div>
-      		<p>{file[0].path}</p>
+      		<p>{file.path}</p>
       </div> ) : (<div></div>)}
     </div>
     </form>
     </Stack>
     <br/>
-    <button type="button" className="btn btn-warning">Submit</button>
+    <button type="button" className="btn btn-warning" onClick={handleSubmit}>Submit</button>
     </div>
   );
 }
