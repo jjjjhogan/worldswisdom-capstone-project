@@ -103,14 +103,6 @@ code {
 }
 
 
-
-.questionText p{
-  display: flex;
-  position: relative;
-  top: 20px;
-  left: 20px;
-}
-
 .questionText button{
   display: flex;
   position: relative;
