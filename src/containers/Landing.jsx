@@ -4,6 +4,7 @@ import CardComponent from "../components/CardComponent";
 import CarouselComponent from "../components/Carousel";
 import { getCategories } from "../services/WorldsWisdomCore";
 import { useNavigate } from "react-router-dom";
+import "./Landing.css";
 
 export default function Landing() {
   const [categories, setCategories] = useState([]);

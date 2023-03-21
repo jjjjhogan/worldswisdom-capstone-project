@@ -4,6 +4,7 @@ import RegisterCategories from "../components/RegisterCategories";
 import React, {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { postUserData } from "../services/WorldsWisdomCore";
+import "./RegisterPage.css";
 
 export default function RegisterPage() {
   const navigate = useNavigate();

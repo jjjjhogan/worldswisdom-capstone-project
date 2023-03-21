@@ -1,0 +1,25 @@
+.container{
+    padding: 100px 0;
+}
+.vstack {
+    border: 3px solid #eeeeee;
+    border-radius: 15px;
+    margin: auto;
+    width: 50%;
+}
+
+.bg-light {
+    border-radius: 5px;
+}
+
+.form-group {
+    text-align: center;
+}
+
+.form-select {
+    border: 2px solid #eeeeee;
+    border-radius: 15px;
+    background-color: #e4f1fe;
+    margin: auto;
+    width: 75%;
+}
