@@ -37,6 +37,7 @@ const rejectStyle = {
 export default function Question_answer(props) {
   const [userData, setUserData] = useState(null);
   const [isLoading, setIsLoading] = useState(props);
+  const [questionId, setQuestionId] = useState();
   const [description, setDescription] = useState();
   const [searchParams] = useSearchParams();
   const [file, setFile] = useState([]);
