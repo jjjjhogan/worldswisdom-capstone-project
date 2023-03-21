@@ -1,5 +1,5 @@
 import Dropdown from "./Dropdown";
-import logo from "./logo1.png";
+import logo from "./logo1_notext.png";
 import { useEffect, useState } from "react";
 
 export default function NavBar() {
@@ -12,14 +12,8 @@ export default function NavBar() {
     }
   }, []);
 
-  const handleLogout = () => {
-    setUserData(null);
-    sessionStorage.removeItem("userData");
-    window.location.reload();
-  }
-
   return (
-    <nav className="navbar navbar-dark bg-primary">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
         <a
           className="navbar-brand align-text-bottom"
@@ -44,16 +38,20 @@ export default function NavBar() {
         <nav className="nav-item">
           {userData ?
           (
-            <button className="btn btn-primary" onClick={handleLogout}>Logout</button>
+            <div>
+            <nav className="nav-item">
+            <Dropdown userData ={userData} setUserData={setUserData}/>
+            </nav>
+            </div>
           ) : (
             <a href="/login" className="btn btn-primary">Login</a>
           )}
           
         </nav>
 
-        <nav className="nav-item">
+{/*        <nav className="nav-item">
           <Dropdown/>
-        </nav>
+        </nav>*/}
       </div>
     </nav>
   );

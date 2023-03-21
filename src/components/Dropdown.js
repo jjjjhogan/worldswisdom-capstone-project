@@ -8,16 +8,22 @@ import profile from "./dropdown_icons/profile.svg"
 import menu from "./dropdown_icons/menu.svg"
 import logout from "./dropdown_icons/logout.svg"
 
-export default function Dropdown() {
+export default function Dropdown(props) {
     
     const [open, setOpen] = useState(false);
+    const {userData, setUserData} = props;
 
+    const handleLogout = () => {
+      setUserData(null);
+      sessionStorage.removeItem("userData");
 
-  
+      window.location.reload();
+    }
+
     return (
             <div className='menu-container' >
               <div className='menu-trigger' onClick={()=>{setOpen(!open)}}>
-                <img src={menu}></img>
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{userData.firstName}</a>
               </div>
       
               <div className={`dropdown-menu ${open? 'active' : 'inactive'}`} >
@@ -27,7 +33,9 @@ export default function Dropdown() {
                   <DropdownItem img = {question_ans} text = {"Questions Answered"}/>
                   <DropdownItem img = {achievement} text = {"Achievement"}/>
                   <DropdownItem img = {payment} text = {"Payment"}/>
-                  <DropdownItem img = {logout} text = {"Logout"}/>
+                  <div onClick={handleLogout}>
+                  <DropdownItem img = {logout} text = {"Logout"} />
+                  </div>
                 </ul>
               </div>
             </div>
