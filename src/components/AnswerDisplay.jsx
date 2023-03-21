@@ -4,16 +4,15 @@ import down from "../components/down.png";
 import profile from "../components/profile.png";
 import ReactPlayer from 'react-player';
 
-export default function AnswerDisplay( props ){
+export default function AnswerDisplay({ answer, user }){
     return(
-
         <div className="bg-light border">
                 <div className="profimage">
                     <img src={profile} style={{width:"30px", height:"30px"}} alt="" />
-                    <p className="card-text">Username</p>
+                    <p className="card-text">{user.userName}</p>
                 </div>
                 <div className="vid-player">
-                    <ReactPlayer url={process.env.REACT_APP_S3_BASE_PATH + props.url} controls={true}/>
+                    <ReactPlayer url={process.env.REACT_APP_S3_BASE_PATH + answer.videoKey} controls={true}/>
                 </div>
                 <div className="reflect">
                     <img src={up} style={{width:"25px", height:"25px"}} alt="" />
