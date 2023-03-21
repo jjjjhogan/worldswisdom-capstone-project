@@ -17,8 +17,10 @@ export default function AnswerDisplayContainer({ videoKey }) {
 
 
   return (
-    <div className="container flex-grow-1 text-center d-flex flex-column justify-content-center">
+    <div className="container-fluid text-center d-flex flex-column justify-content-center">
+      <br/>
       <AnswerDisplay answer={answer} user={user}/>
+      <br/>
     </div>
   );
 }

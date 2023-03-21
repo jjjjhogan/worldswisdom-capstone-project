@@ -5,7 +5,7 @@ export default function Question_answer_container() {
 
     return (
       <div className="d-flex flex-column inner-height landing">
-        <div className="container flex-grow-1 text-center d-flex flex-column justify-content-center">
+        <div className="container-fluid text-center d-flex flex-column justify-content-center">
           <div>
           <Question_answer />
           </div>

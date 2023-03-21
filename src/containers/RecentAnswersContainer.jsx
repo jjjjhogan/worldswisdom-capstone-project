@@ -23,7 +23,7 @@ export default function RecentAnswersContainer() {
         </div>
         <div className="justify-content-center pb-3">
             <div className="d-flex flex-column">
-                <div className="flex-grow-1 text-center d-flex flex-column justify-content-center">
+                <div className="container-fluid text-center d-flex flex-column justify-content-center">
                     <QuestionsDisplay questions={questions}/>
                 </div>
             </div>

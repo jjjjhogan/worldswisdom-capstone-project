@@ -18,10 +18,11 @@ export default function QuestionDisplayCategoryContainer() {
 
   return (
       <div className="d-flex flex-column inner-height landing">
-        <div className="container flex-grow-1 text-center d-flex flex-column justify-content-center">
+      <br/>
+        <div className="container-fluid text-center d-flex flex-column justify-content-center">
           <div>
             <div style={{ textAlign: "center" }}>
-              <h1>Popular {categoryName} Questions</h1>
+              <h2>Popular {categoryName} Questions</h2>
             </div>
             <QuestionsDisplay questions={questions} searchQuery={categoryName}/>
           </div>

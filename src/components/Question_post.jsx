@@ -35,16 +35,16 @@ export default function Question_post() {
   return (
 
     <div>
-    <Stack gap={50}>
+    <h4>Post a Question</h4>
     <form onSubmit={handleSubmit}>
       <div className="form-group">
-          <label  className="title">Question</label>
+          <label  className="title">Question:</label>
           <input name="questionTitle" className="form-control" id="exampleInputEmail1" placeholder="What is your question?"></input>
 
       </div>
       
       <div className="form-group">
-          <label className="category">Category</label>
+          <label className="category">Category:</label>
           <select multiple="" className="form-select" id="exampleSelect2" name="category">
               {categories.map((category, index) => (
                 <option key={index} value={category.categoryName}>{category.categoryName}</option>
@@ -52,9 +52,9 @@ export default function Question_post() {
               
           </select>
       </div>
+      <br/>
       <input type="submit" className="btn btn-warning" value="Post"></input>
     </form>
-    </Stack>
     </div>
   );
 }

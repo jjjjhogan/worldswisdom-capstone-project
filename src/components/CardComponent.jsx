@@ -1,20 +1,6 @@
 import React from "react";
 import Card from 'react-bootstrap/Card';
 
-/*const CardComponent = ({ dimension, text, image, hyperlink }) => {
-  return (
-    <Card style={{ width: dimension, height: dimension, backgroundImage: `url(${image})` }}>
-      <Card.Body>
-        <Card.Title>{text}</Card.Title>
-        <Card.Link href={hyperlink}>Learn More</Card.Link>
-      </Card.Body>
-    </Card>
-  );
-};
-
-export default CardComponent;
-*/
-
 const CardComponent = (props) => {
   return (
     <Card 

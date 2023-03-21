@@ -166,7 +166,6 @@ export const postAnswer = async (
   answerObject
   ) => {
   try {
-    console.log(answerObject)
     const { data } = await axios.post(
       `${WORLDS_WISDOM_CORE[process.env.NODE_ENV].URL}/api/v0/answer/postAnswer`,
       answerObject, {

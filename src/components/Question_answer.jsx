@@ -10,7 +10,7 @@ const baseStyle = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  padding: '20px',
+  padding: '50px',
   borderWidth: 2,
   borderRadius: 2,
   borderColor: '#eeeeee',
@@ -38,6 +38,7 @@ export default function Question_answer(props) {
   const [userData, setUserData] = useState(null);
   const [isLoading, setIsLoading] = useState(props);
   const [questionId, setQuestionId] = useState();
+  const [questionText, setQuestionText] = useState();
   const [description, setDescription] = useState();
   const [searchParams] = useSearchParams();
   const [file, setFile] = useState([]);
@@ -46,6 +47,8 @@ export default function Question_answer(props) {
   useEffect(() => {
     const questionId = searchParams.get("questionId");
     setQuestionId(questionId);
+    const questionText = searchParams.get("questionText");
+    setQuestionText(questionText);
     const data = JSON.parse(sessionStorage.getItem("userData"));
     if (data) {
       setUserData(data);
@@ -108,27 +111,19 @@ export default function Question_answer(props) {
   ]);
   return (
     <div>
-    <Stack gap={5}>
     <form>
-    
+    <legend>Post an Answer</legend>
     <div className="form-group">
-        <label htmlFor="exampleInputEmail1" className="title">Description</label>
-        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Description"></input>
+    <label className="title">Question:</label>
+        <input className="form-control" placeholder={questionText} readonly="readonly"></input>
+        <br/>
+        <label htmlFor="exampleInputEmail1" className="title">Description:</label>
+        <textarea className="form-control" placeholder="Description"></textarea>
     </div>
     <br/>
-    <div className="selection">
-    <label className="label">Answer Type:</label>
-      <div className="form-check video" style={{display:'inline-block'}}>
-        <input className="form-check-input" type="radio" defaultChecked name="optionsRadios" id="optionsRadios1" value="option1" ></input>
-        <label className="form-check-label" htmlFor="optionsRadios1">Video</label>
-      </div>
-      <div className="form-check audio" style={{display:'inline-block'}}>
-        <input className="form-check-input" type="radio" name="optionsRadios" id="optionsRadios2" value="option2"></input>
-        <label className="form-check-label" htmlFor="optionsRadios2">Audio</label>
-      </div>
-      </div>
-      <br/>
-      <div className="container">
+    <label htmlFor="exampleInputEmail1" className="title">Video/Audio:</label>
+    <br/><br/>
+      <div className="container-fluid">
       <div {...getRootProps({style})}>
         <input {...getInputProps()} name="file" accept="video/*, audio/*"/>
         <p>Click to choose wisdom or drag 'n drop your wisdom!</p>
@@ -139,7 +134,6 @@ export default function Question_answer(props) {
       </div> ) : (<div></div>)}
     </div>
     </form>
-    </Stack>
     <br/>
     <button type="button" className="btn btn-warning" onClick={handleSubmit}>Submit</button>
     </div>
