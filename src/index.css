@@ -19,21 +19,21 @@ code {
 
 
 .menu-trigger img{
-  position: absolute;
+  position: static;
   top: 15px;
   right: 20px;
   height: 50px;
   width: 50px;
   overflow: hidden;
   cursor: pointer;
-  background-color: #349cf4;
+  background-color: #F8F9FA;
 }
 
 .dropdown-menu{
   position: absolute;
   display: block;
-  top: 100px;
-  right: 30px;
+  top: 80px;
+  right: 10px;
   background-color: #fff;
   border-radius: var(--border-radius);
   padding: 10px 20px;
@@ -54,10 +54,6 @@ code {
   transform: translateY(-20px);
   transition: var(--speed) ease;
 }
-
-
-
-
 
 .dropdown-menu ul li{
   padding: 10px  0;
