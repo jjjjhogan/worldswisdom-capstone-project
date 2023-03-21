@@ -17,8 +17,8 @@ export default function QuestionSearchPage() {
       <div className="container py-1 flex-grow-1 text-center justify-content-center" style={{ width: "80%" }}>
         <div>
           <div style={{ textAlign: "center" }}>
-            <h1>Most similar to "{searchQuery}"</h1>
-            <h3>Don't see your question below? <button type="button" className="btn btn-primary" onClick={clickNewQuestion}>New Question</button></h3>
+            <h3>Search Results for "{searchQuery}"</h3>
+            <h4>Don't see your question below? <button type="button" className="btn btn-primary" onClick={clickNewQuestion}>Post Question</button></h4>
           </div>
           <QuestionSearch searchQuery={searchQuery}/>
         </div>

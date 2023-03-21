@@ -12,12 +12,13 @@ export default function AnswerDisplay({ answer, user }){
                     <p className="card-text">{user.userName}</p>
                 </div>
                 <div className="vid-player">
-                    <ReactPlayer url={process.env.REACT_APP_S3_BASE_PATH + answer.videoKey} controls={true}/>
+                    <ReactPlayer  url={process.env.REACT_APP_S3_BASE_PATH + answer.videoKey} controls={true}/>
                 </div>
                 <div className="reflect">
                     <img src={up} style={{width:"25px", height:"25px"}} alt="" />
                     <img src={down} style={{width:"25px", height:"25px"}} alt="" />
                 </div>
+                
             </div>
     );
 };

@@ -11,15 +11,15 @@ export default function QuestionDisplay( { question } ){
 
   return (
     <div onClick={onQuestionClick}>
-        <div className="bg-light border">
-          <div className="questionCat">
-            <button type="button" className="btn btn-light btn-sm">{question.categories}</button>
+        <div className="card " role="button">
+          <div className="questionCat d-flex"> 
+            <span className="badge rounded-pill bg-primary ">{question.categories}</span>
           </div>
-          <div className="questionText">
+          <div className="questionText card-title ">
             <h5>{question.questionText}</h5>
-            <button type="button" className="btn btn-light btn-sm">reply</button>
           </div>
         </div>
+        <br/>
     </div>
   );
 }

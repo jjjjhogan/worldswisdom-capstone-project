@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 const CarouselComponent = ({questions, categories}) => {
   const navigate = useNavigate();
   const getCategoryImg = (question) => {
-    console.log(question);
     let category = categories.find(category => category.categoryName == question.categories);
     if (category) {
       return category.categoryImg;

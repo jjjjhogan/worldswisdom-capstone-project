@@ -23,7 +23,7 @@ export default function Dropdown(props) {
     return (
             <div className='menu-container' >
               <div className='menu-trigger' onClick={()=>{setOpen(!open)}}>
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{userData.firstName}</a>
+                <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{userData.firstName}</a>
               </div>
       
               <div className={`dropdown-menu ${open? 'active' : 'inactive'}`} >

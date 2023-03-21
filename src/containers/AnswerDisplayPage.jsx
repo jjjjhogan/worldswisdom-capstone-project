@@ -21,19 +21,24 @@ export default function Landing() {
   }, []);
 
   const clickUploadAnswer = () => {
-    const questionId = "?questionId=" + question._id;
-    navigate({pathname: "/questionanswer", search: questionId});
+    const questionData = "?questionId=" + question._id + "&questionText=" + question.questionText;
+    navigate({pathname: "/questionanswer", search: questionData});
   }
 
   return (
     <div className="d-flex flex-column inner-height landing">
-      <div className="container flex-grow-1 text-center d-flex flex-column justify-content-center">
-        <QuestionDisplay question={question}/>
+    <br/>
+      <div className="container-fluid text-center d-flex flex-column justify-content-center">
+        <legend>{question.questionText}</legend>
         {(videoKeys.length==0) ? "This question has no answers." : ""}
-        <button type="button" className="btn btn-primary mt-3" onClick={clickUploadAnswer}>Upload Answer</button>
         {videoKeys.map((videoKey, index) => (
           <AnswerDisplayContainer videoKey={videoKey} key={index} />
         ))}
+        <div>
+        <button type="button" className="btn btn-primary mt-3" onClick={clickUploadAnswer}>Upload Answer</button>
+        </div>
+        <br/>
+        <br/>
       </div>
     </div>
   );

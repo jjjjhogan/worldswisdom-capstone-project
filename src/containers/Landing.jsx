@@ -7,12 +7,14 @@ import { useNavigate } from "react-router-dom";
 import RecentAnswersContainer from "./RecentAnswersContainer";
 import "./Landing.css";
 
-export default function Landing() {
+export default function Landing(props) {
+  const [isLoading, setIsLoading] = useState(props);
   const [categories, setCategories] = useState([]);
   const [userData, setUserData] = useState(null);
   const [popularQuestions, setPopularQuestions] = useState([]);
 
   useEffect(() => {
+    setIsLoading(true);
     async function fetchCategories() {
       const categoriesData = await getCategories();
       setCategories(categoriesData);
@@ -30,6 +32,7 @@ export default function Landing() {
     if (data) {
       setUserData(data);
     }
+    setIsLoading(false);
   }, []);
 
   const navigate = useNavigate();

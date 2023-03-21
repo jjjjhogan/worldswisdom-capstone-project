@@ -13,7 +13,7 @@ export default function NavBar() {
   }, []);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
       <div className="container-fluid">
         <a
           className="navbar-brand align-text-bottom"
@@ -27,13 +27,16 @@ export default function NavBar() {
           />{" "}
           WorldsWisdom
         </a>
-
+        <div className="container-fluid nav-fill w-75">
         <nav className="nav-item">
           <form className="d-flex" action="/searchQuestion">
+          <div className="w-100 d-inline-block">
             <input className="form-control me-sm-2" name="search" type="text" placeholder="Search"/>
+            </div>
             <button className="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
           </form>
         </nav>
+        </div>
 
         <nav className="nav-item">
           {userData ?
@@ -48,10 +51,6 @@ export default function NavBar() {
           )}
           
         </nav>
-
-{/*        <nav className="nav-item">
-          <Dropdown/>
-        </nav>*/}
       </div>
     </nav>
   );
