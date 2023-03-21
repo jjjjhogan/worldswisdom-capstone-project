@@ -12,7 +12,6 @@ import QuestionAnswerPage from "./containers/QuestionAnswerPage";
 import QuestionPostPage from "./containers/QuestionPostPage";
 import AnswerDisplayPage from "./containers/AnswerDisplayPage";
 import QuestionSearchPage from "./containers/QuestionSearchPage";
-import Question_display_container from "./containers/Question_display_container";
 import QuestionDisplayCategoryPage from "./containers/QuestionDisplayCategoryPage"
 
 import Test from "./Test";
